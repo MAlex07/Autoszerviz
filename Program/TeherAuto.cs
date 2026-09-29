@@ -35,7 +35,7 @@ namespace Program
         public override void Szervizel(int dij)
         {
             rakomány = 0;
-
+            base.Szervizel(dij);
         }
     }
 }
