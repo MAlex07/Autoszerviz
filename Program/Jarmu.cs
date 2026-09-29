@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Program
+namespace Autoszerviz
 {
     public class Jarmu
     {
@@ -10,7 +10,7 @@ namespace Program
         private int kor;
         private int kilometerOra;
         private int uzemanyagSzint;
-        private bool szervizSzugseges;
+        private bool szervizSzukseges;
 
         public Jarmu(string rendszam, int kor, int kilometerOra, int uzemanyagSzint)
         {
@@ -18,27 +18,29 @@ namespace Program
             Kor = kor;
             KilometerOra = kilometerOra;
             UzemanyagSzint = uzemanyagSzint;
-            SzervizSzugseges = szervizSzugseges;
+            SzervizSzukseges = szervizSzukseges;
         }
 
         public string Rendszam { get => rendszam;
             set{
-                if (rendszam == " ")
+                if (value == " ")
                 {
                     rendszam = "ISMERETLEN";
                 }
+                rendszam = value;
             } 
                 }
         public int Kor { get => kor;
             set { 
             
-                if(kor < 0)
+                if(value < 0)
                 {
                     kor = 0;
-                }else if(kor > 50)
+                }else if(value > 50)
                 {
                     kor = 50;
                 }
+                kor = value;
             
             } }
         public int KilometerOra { get => kilometerOra;
@@ -48,31 +50,34 @@ namespace Program
                 {
                     kilometerOra = 0;
                 }
+                kilometerOra = value;
             
             } }
         public int UzemanyagSzint { get => uzemanyagSzint; 
             set {
             
-                if(uzemanyagSzint < 0)
+                if(value < 0)
                 {
                     uzemanyagSzint = 0;
-                }else if(uzemanyagSzint > 100)
+                }else if(value > 100)
                 {
                     uzemanyagSzint = 100;
                 }
+                uzemanyagSzint = value;
             
             } }
-        public bool SzervizSzugseges { get => szervizSzugseges;
+        public bool SzervizSzukseges { get => szervizSzukseges;
             set {
             
                 if(kilometerOra >= 200000)
                 {
-                    szervizSzugseges = true;
+                    szervizSzukseges = true;
                 }
                 else
                 {
-                    szervizSzugseges = false;
+                    szervizSzukseges = false;
                 }
+                
             
             } }
 
@@ -86,9 +91,11 @@ namespace Program
             if(dij > 100000)
             {
                 kilometerOra -= 10000;
-                uzemanyagSzint -= 10;
-                Console.WriteLine("A jármű szervizelés megtörtént");
+                
             }
+            uzemanyagSzint -= 10;
+            Console.WriteLine("A jármű szervizelés megtörtént");
+
         }
 
 

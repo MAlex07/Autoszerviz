@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Autoszerviz
 {
     public class Program
     {

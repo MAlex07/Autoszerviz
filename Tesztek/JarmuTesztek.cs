@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using Program;
+using Autoszerviz;
 
-namespace Tesztek
+namespace Autoszerviz
 {
     public class JarmuTesztek
     {

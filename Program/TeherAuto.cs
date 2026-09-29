@@ -2,39 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Program
+namespace Autoszerviz
 {
     public class TeherAuto : Jarmu
     {
-        private int rakomány;
+        private int rakomany;
 
         public TeherAuto(string rendszam, int kor, int kilometerOra, int uzemanyagSzint, int rakomány): base(rendszam, kor, kilometerOra, uzemanyagSzint)
         {
-            Rakomány = rakomány;
+            Rakomany = rakomány;
         }
 
-        public int Rakomány { get => rakomány; 
+        public int Rakomany { get => rakomany; 
             set { 
             
-                if(rakomány < 0)
+                if(value < 0)
                 {
-                    rakomány = 0;
+                    rakomany = 0;
 
-                }else if(rakomány > 20){
-                    
-                    rakomány = 20;
+                }else if(value > 20){
+
+                    rakomany = 20;
                 }
+                rakomany = value;
 
             } }
 
         public override void InformaciotAd()
         {
-            Console.WriteLine($"{Rendszam} - {Kor} éves teherautó, {KilometerOra} km-rel, {rakomány} tonna rakománnyal");
+            Console.WriteLine($"{Rendszam} - {Kor} éves teherautó, {KilometerOra} km-rel, {rakomany} tonna rakománnyal");
         }
 
         public override void Szervizel(int dij)
         {
-            rakomány = 0;
+            rakomany = 0;
             base.Szervizel(dij);
         }
     }

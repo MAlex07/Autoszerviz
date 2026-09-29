@@ -2,10 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Program
+namespace Autoszerviz
 {
     public class Szerviz
     {
+        private List<Jarmu> jarmuvek = new List<Jarmu>();
+
+        public void JarmuFelvetele(Jarmu jarmu)
+        {
+            jarmuvek.Add(jarmu);
+            Console.WriteLine("A jármű megérkezett a szervízbe");
+        }
+
+        public void InformaciokListazasa()
+        {
+            foreach(Jarmu jarmu in jarmuvek)
+            {
+                jarmu.InformaciotAd();
+            }
+        }
+
+        public void CsoportosSzerviz(int dij)
+        {
+            foreach(Jarmu jarmu in jarmuvek)
+            {
+                if (jarmu.SzervizSzukseges)
+                {
+                    jarmu.Szervizel(dij);
+                }
+                else
+                {
+                    Console.WriteLine($"A {jarmu.Rendszam} szervizelése nem szükséges");
+                }
+            }
+        }
 
     }
 }
