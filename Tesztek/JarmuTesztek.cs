@@ -199,5 +199,21 @@ namespace Autoszerviz
             Assert.That(auto.KilometerOra, Is.EqualTo(190000));
             Assert.That(auto.AkkumulatorSzint, Is.EqualTo(70));
         }
+
+        // -------------------------
+        // Busz tesztek
+        // -------------------------
+        
+        [Test]
+        public void Busz_Szervizel_SzervizElottLeuritiARakomanyt()
+        {
+            Busz auto = new Busz("BUS-456", 8, 200000, 60, 20);
+
+            auto.Szervizel(150000);
+
+            Assert.That(auto.Utasok, Is.EqualTo(0));
+        }
+
+
     }
 }
